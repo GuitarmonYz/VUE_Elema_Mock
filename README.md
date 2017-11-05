@@ -1,7 +1,5 @@
 # VUE_Elema_Mock
-A web app that that immitating the native app of Chinese version Yelp -- '饿了吗' ，developed using VUE.js
-
-> eleme imooc
+A web app that that immitating the native app of Chinese version Yelp -- '饿了吗' ，developed using VUE.js. Referencing the code by [ustbhuangyi](https://github.com/ustbhuangyi).
 
 ## Build Setup
 
