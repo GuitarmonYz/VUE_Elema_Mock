@@ -22,12 +22,12 @@
                             <h1 class="name">{{food.name}}</h1>
                             <p class="desc">{{food.description}}</p>
                             <div class="extra">
-                                <span>Sells count: {{food.sellCount}}</span>
+                                <span class="count">Sells count: {{food.sellCount}}</span>
                                 <span>Positive Rating Ratio: {{food.rating}}%</span>
                             </div>
                             <div class="price">
-                                <span>${{food.price}}</span>
-                                <span v-show="food.oldPrice">${{food.oldPrice}}</span>
+                                <span class="now">${{food.price}}</span>
+                                <span class="old" v-show="food.oldPrice">${{food.oldPrice}}</span>
                             </div>
                         </div>
                     </li>
@@ -128,9 +128,31 @@
           flex: 0 0 57px
           margin-right: 10px
         .content
-          margin: 2px 0 8px 0
-          height: 14px
-          line-height: 14px
-          font-size: 14px
-          color: rgb(7, 17, 27)  
+          flex: 1
+          .name
+            margin: 2px 0 8px 0
+            height: 14px
+            line-height: 14px
+            font-size: 14px
+            color: rgb(7, 17, 27)
+          .desc, .extra
+            font-size: 10px
+            line-height: 10px
+            color: rgb(147, 153, 159)
+          .desc
+            margin-bottom: 8px
+          .extra
+            &.count
+              margin-right: 12px
+          .price
+            font-weight: 700
+            line-height: 24px
+            .now
+              margin-right: 8px
+              font-size: 14px
+              color: rgb(240, 20, 20)
+            .old
+              text-decoration: line-through
+              font-size: 10px
+              color: rgb(147, 153, 159)
 </style>
