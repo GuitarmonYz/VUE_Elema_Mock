@@ -26,7 +26,7 @@ Goods page:
 - Sellers' detail page, transition animation from goods page to it
 - Rating stars component
 
-![demo](/Users/zhaoyan/workstuff/VueLearning/demo.gif)
+![demo](https://github.com/GuitarmonYz/VUE_Elema_Mock/blob/master/demo.gif?raw=true)
 
 Large efforts are dedicated to layourts, good practice to get familiar with css responsive development. All layouts are implemented with Stylus.
 
