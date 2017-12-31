@@ -2,7 +2,7 @@
     <div class="goods">
        <div class="menu-wrapper" ref="menuWrapper">
         <ul>
-            <li v-for="(item, idx) in goods" class="menu-item" :class="{'current':currentIndex==idx}" ref="menuList" @click="selectMenu(idx, $event)">
+            <li v-for="(item, idx) in goods" :key="idx" class="menu-item" :class="{'current':currentIndex==idx}" ref="menuList" @click="selectMenu(idx, $event)">
                 <span class="text border-1px">
                     <span v-show="item.type > 0" class="icon" :class="classMap[item.type]"></span>{{item.name}}
                 </span>
@@ -11,10 +11,10 @@
        </div>
        <div class="foods-wrapper" ref="foodWrapper">
         <ul>
-            <li v-for="(item, idx) in goods" class="food-list" ref="foodList">
+            <li v-for="(item, idx) in goods" :key="idx" class="food-list" ref="foodList">
                 <h1 class="title">{{item.name}}</h1>
                 <ul>
-                    <li v-for="food in item.foods" class="food-item">
+                    <li v-for="(food, idx) in item.foods" :key="idx" class="food-item">
                         <div class="icon">
                             <img height="57" width="57" :src="food.icon">
                         </div>
@@ -29,7 +29,7 @@
                                 <span class="old" v-show="food.oldPrice">${{food.oldPrice}}</span>
                             </div>
                             <div class="cartcontrol-wrapper">
-                              <cartcontrol :food="food"></cartcontrol>
+                              <cartcontrol @add="addFood" :food="food"></cartcontrol>
                             </div>
                         </div>
                     </li>
@@ -98,6 +98,14 @@
       });
     },
     methods: {
+      addFood (target) {
+        this._drop(target);
+      },
+      _drop (target) {
+        this.$nextTick(() => {
+          this.$refs.shopcart.drop(target);
+        });
+      },
       _initScroll () {
         this.menuScroll = new BScroll(this.$refs.menuWrapper, {
           click: true
